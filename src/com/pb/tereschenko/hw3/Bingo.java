@@ -21,7 +21,7 @@ public class Bingo {
             if (number >= 0) {
                 counter++;
                 if (number == hiddenNumber) {
-                    System.out.println("Поздравляю вы угадали загаданное чило: " + hiddenNumber + " всего с " + counter + " попыток");
+                    System.out.println("Поздравляю вы угадали загаданное число: " + hiddenNumber + " всего с " + counter + " попыток");
                     break;
                 } else if (number < hiddenNumber) {
                     System.out.println("Увы, загаданное число больше Вашего:");

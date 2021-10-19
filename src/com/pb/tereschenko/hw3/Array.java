@@ -58,7 +58,7 @@ public class Array {
                 }
             }
         }
-        System.out.println("Отсортированный масив");
+        System.out.println("Отсортированный массив");
         for (int el:array){
             System.out.print(el + " ");
         }
