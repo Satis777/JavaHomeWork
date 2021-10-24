@@ -7,7 +7,6 @@ public class CapitalLetter {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите Вашу строку: ");
         String str = scanner.nextLine();
-        //String str = "Истина — это то, что выдерживает проверку опытом. Эйнштейн А.";
         FirstCapitalLetter(str);
 
     }
