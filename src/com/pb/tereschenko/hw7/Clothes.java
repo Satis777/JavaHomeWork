@@ -13,12 +13,12 @@ public abstract class Clothes {
     }
 
     public void dressMan() {
-        System.out.println("Название: " + type + "\n" + "Размер: " + size + " " + "(" + size.getEuroSize() + " , " + size.getDescription() + ")" + "\n" + "Цвет: " + color + "\n" + "Цена: " + price);
+        System.out.println("Название: " + type + "\n" + "Размер: " + size + " " + "(" + size.getEuroSize() + ", " + size.getDescription() + ")" + "\n" + "Цвет: " + color + "\n" + "Цена: " + price);
 
     }
 
     public void dressWomen() {
-        System.out.println("Название: " + type + "\n" + "Размер: " + size + " " + "(" + size.getEuroSize() + " , " + size.getDescription() + ")" + "\n" + "Цвет: " + color + "\n" + "Цена: " + price);
+        System.out.println("Название: " + type + "\n" + "Размер: " + size + " " + "(" + size.getEuroSize() + ", " + size.getDescription() + ")" + "\n" + "Цвет: " + color + "\n" + "Цена: " + price);
 
     }
 
