@@ -12,14 +12,5 @@ public abstract class Clothes {
         this.color = color;
     }
 
-    public void dressMan() {
-        System.out.println("Название: " + type + "\n" + "Размер: " + size + " " + "(" + size.getEuroSize() + ", " + size.getDescription() + ")" + "\n" + "Цвет: " + color + "\n" + "Цена: " + price);
-
-    }
-
-    public void dressWomen() {
-        System.out.println("Название: " + type + "\n" + "Размер: " + size + " " + "(" + size.getEuroSize() + ", " + size.getDescription() + ")" + "\n" + "Цвет: " + color + "\n" + "Цена: " + price);
-
-    }
 
 }

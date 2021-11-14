@@ -25,7 +25,7 @@ public class Atelier {
     static void dressMan(Clothes[] clothes) {
         for (Clothes el : clothes) {
             if (el instanceof ManClothes) {
-                el.dressMan();
+                ((ManClothes) el).dressMan();
                 System.out.println();
             }
         }
@@ -33,7 +33,7 @@ public class Atelier {
     static void dressWomen(Clothes[] clothes){
         for (Clothes el: clothes){
             if(el instanceof WomenClothes){
-                el.dressWomen();
+                ((WomenClothes) el).dressWomen();
                 System.out.println();
             }
         }

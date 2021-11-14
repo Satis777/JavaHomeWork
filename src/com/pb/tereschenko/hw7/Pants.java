@@ -10,11 +10,15 @@ public class Pants extends Clothes implements ManClothes, WomenClothes {
 
     @Override
     public void dressMan() {
-        super.dressMan();
+        System.out.println("Название: " + type + "\n" + "Размер: " + size + " " +
+                "(" + size.getEuroSize() + ", " + size.getDescription() + ")" +
+                "\n" + "Цвет: " + color + "\n" + "Цена: " + price);;
     }
 
     @Override
     public void dressWomen() {
-        super.dressWomen();
+        System.out.println("Название: " + type + "\n" + "Размер: " + size + " " +
+                "(" + size.getEuroSize() + ", " + size.getDescription() + ")" +
+                "\n" + "Цвет: " + color + "\n" + "Цена: " + price);
     }
 }
