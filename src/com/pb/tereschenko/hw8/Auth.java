@@ -10,8 +10,8 @@ public class Auth {
 
 
     public void signUp(String log, String pas, String confirmPas) throws WrongException {
-        if (log.length() >= 5 && log.length() <= 20 && log.matches("[a-zA-Z0-9]+")) {
-            if (pas.length() >= 5 && pas.matches("[a-zA-Z0-9_]+") && pas.equals(confirmPas)) {
+        if (log.matches("[a-zA-Z0-9]{5,20}")) {
+            if (pas.matches("[a-zA-Z0-9_]{5,}") && pas.equals(confirmPas)) {
                 login = log;
                 password = pas;
                 System.out.println("Поздравляю, Вы успешно зарегистрировались!");
@@ -23,7 +23,7 @@ public class Auth {
         }
     }
 
-    public void signIn(String log, String pas) {
+    public void signIn(String log, String pas) throws WrongLoginException {
         if (log.equals(login) && pas.equals(password)) {
             System.out.println(login + " Вы успешно авторизовались.");
         } else throw new WrongLoginException("Логин или пароль не верны, попробуйте еще раз.");
