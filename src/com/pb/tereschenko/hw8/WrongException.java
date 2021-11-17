@@ -1,6 +1,6 @@
 package com.pb.tereschenko.hw8;
 
-public class WrongException extends RuntimeException {
+public class WrongException extends Exception {
 
     public WrongException() {
     }
