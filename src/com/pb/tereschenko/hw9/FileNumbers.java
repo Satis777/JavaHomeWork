@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Level;
 
-import static com.pb.tereschenko.hw9.LoggingExamples.LOGGER;
+import static com.pb.tereschenko.hw9.LoggingExamples.*;
 
 
 public class FileNumbers {
