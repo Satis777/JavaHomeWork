@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Level;
 
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+import static com.pb.tereschenko.hw9.LoggingExamples.LOGGER;
 
 
 public class FileNumbers {
