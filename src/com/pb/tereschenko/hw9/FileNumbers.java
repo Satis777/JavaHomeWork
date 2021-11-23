@@ -21,7 +21,7 @@ public class FileNumbers {
 
     public static void createNumbersFile() {
 
-        LOGGER.log(Level.INFO, "start createNumbersFile");
+        LOGGER.log(Level.INFO, "Метод createNumbersFile");
         Random random = new Random();
         try (FileWriter fw = new FileWriter("numbers.txt", false)) {
             for (int i = 0; i < 10; i++) {
@@ -31,7 +31,7 @@ public class FileNumbers {
                 }
                 fw.write('\n');
             }
-            LOGGER.log(Level.INFO, "File recorded");
+            LOGGER.log(Level.INFO, "Файл \"numbers.txt\" записан!");
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, e.getMessage());
             System.out.println(e.getMessage());
@@ -41,7 +41,7 @@ public class FileNumbers {
 
 
     public static void createOddNumbersFile() {
-        LOGGER.log(Level.INFO, "start createOddNumbersFile");
+        LOGGER.log(Level.INFO, "Метод createOddNumbersFile");
 
         try (
                 FileReader fr = new FileReader("numbers.txt");
@@ -59,10 +59,9 @@ public class FileNumbers {
                 }
                 fw.write('\n');
             }
-            LOGGER.log(Level.INFO, "File read");
+            LOGGER.log(Level.INFO, "Файл \"numbers.txt\" прочитан и создан \"old-numbers.txt\"!");
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, e.getMessage());
-            System.out.println(e.getMessage());
         }
 
     }
