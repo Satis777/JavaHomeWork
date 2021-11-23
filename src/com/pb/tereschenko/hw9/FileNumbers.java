@@ -51,12 +51,11 @@ public class FileNumbers {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] numbers = line.split(" ");
-                for (int i = 0; i < numbers.length; i++) {
-                    int num = Integer.parseInt(numbers[i]);
+                for (String el : numbers) {
+                    int num = Integer.parseInt(el);
                     if (num % 2 != 0) {
                         fw.write(num + " ");
                     } else fw.write(0 + " ");
-
                 }
                 fw.append('\n');
             }
