@@ -57,7 +57,7 @@ public class FileNumbers {
                         fw.write(num + " ");
                     } else fw.write(0 + " ");
                 }
-                fw.append('\n');
+                fw.write('\n');
             }
             LOGGER.log(Level.INFO, "File read");
         } catch (IOException e) {
