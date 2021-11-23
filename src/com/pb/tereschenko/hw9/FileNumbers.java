@@ -23,11 +23,11 @@ public class FileNumbers {
 
         LOGGER.log(Level.INFO, "start createNumbersFile");
         Random random = new Random();
-        try (FileWriter writer = new FileWriter("note.txt", false)) {
+        try (FileWriter writer = new FileWriter("numbers.txt", false)) {
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
                     int number = random.nextInt(99) + 1;
-                    writer.append(number + " ");
+                    writer.write(number + " ");
                 }
                 writer.append('\n');
             }
@@ -40,16 +40,25 @@ public class FileNumbers {
     }
 
 
-
     public static void createOddNumbersFile() {
         LOGGER.log(Level.INFO, "start createOddNumbersFile");
 
-        try (FileReader fr = new FileReader("note.txt")) {
+        try (
+                FileReader fr = new FileReader("numbers.txt");
+                FileWriter fw = new FileWriter("old-numbers.txt", false);
+        ) {
             Scanner scanner = new Scanner(fr);
-            int i = 0;
             while (scanner.hasNextLine()) {
-                System.out.println(scanner.nextLine());
-                i++;
+                String line = scanner.nextLine();
+                String[] numbers = line.split(" ");
+                for (int i = 0; i < numbers.length; i++) {
+                    int num = Integer.parseInt(numbers[i]);
+                    if (num % 2 != 0) {
+                        fw.write(num + " ");
+                    } else fw.write(0 + " ");
+
+                }
+                fw.append('\n');
             }
             LOGGER.log(Level.INFO, "File read");
         } catch (IOException e) {
@@ -59,3 +68,4 @@ public class FileNumbers {
 
     }
 }
+
