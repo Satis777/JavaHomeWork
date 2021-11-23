@@ -23,13 +23,13 @@ public class FileNumbers {
 
         LOGGER.log(Level.INFO, "start createNumbersFile");
         Random random = new Random();
-        try (FileWriter writer = new FileWriter("numbers.txt", false)) {
+        try (FileWriter fw = new FileWriter("numbers.txt", false)) {
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
                     int number = random.nextInt(99) + 1;
-                    writer.write(number + " ");
+                    fw.write(number + " ");
                 }
-                writer.append('\n');
+                fw.write('\n');
             }
             LOGGER.log(Level.INFO, "File recorded");
         } catch (IOException e) {
