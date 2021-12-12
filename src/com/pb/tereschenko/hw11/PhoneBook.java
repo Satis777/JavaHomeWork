@@ -7,11 +7,10 @@ import java.util.function.Predicate;
 
 public class PhoneBook {
     public static void main(String[] args) throws ParseException {
-        System.out.println("|----------Welcome to Phone's Book!----------|");
         List<Person> persons = new ArrayList<>();
         SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
         Scanner scan = new Scanner(System.in);
-// Create test contact
+// Тестовые контакты
         persons.add(new Person("Gala", formatDate.parse("31/01/1979"), "0969260052", "Dnepr"));
         persons.add(new Person("Алексей", formatDate.parse("07/03/1977"), "0961240420", "Dnepr"));
         persons.add(new Person("Семен", formatDate.parse("13/12/2009"), "095", "Dnepr"));
@@ -41,7 +40,7 @@ public class PhoneBook {
                 case 1:
                     System.out.println("Введите имя");
                     name = scan.next();
-                    System.out.println("Введите дату рождения");
+                    System.out.println("Введите дату рождения в формате \"день/месяц/год\"");
                     date = scan.next();
                     System.out.println("Введите телефон");
                     phone = scan.next();
