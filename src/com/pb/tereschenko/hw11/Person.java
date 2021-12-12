@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class Person implements Comparable<Person>{
+public class Person implements Comparable<Person> {
     private String name;
     private Date dateBirthday;
     private List<String> phone;
@@ -22,7 +22,6 @@ public class Person implements Comparable<Person>{
         this.address = address;
         this.dateEdit = new Date();
     }
-
 
 
     public String getName() {
@@ -62,7 +61,6 @@ public class Person implements Comparable<Person>{
     }
 
 
-
     @Override
     public String toString() {
         return "Person{" +
@@ -74,17 +72,22 @@ public class Person implements Comparable<Person>{
                 '}' + "\n";
     }
 
-        public void createContact(String name,String date,String phone, String address) throws ParseException {
-            this.name = name;
-            this.dateBirthday = formatDate.parse(date);
-            this.phone.add(phone);
-            this.address = address;
-            this.dateEdit = new Date();
-        }
+    public String info() {
+        return name + " " + formatDate.format(dateBirthday) + " " + address;
+
+    }
+
+    public void createContact(String name, String date, String phone, String address) throws ParseException {
+        this.name = name;
+        this.dateBirthday = formatDate.parse(date);
+        this.phone.add(phone);
+        this.address = address;
+        this.dateEdit = new Date();
+    }
 
     @Override
     public int compareTo(Person person) {
         return 0;
-        }
+    }
 
 }
