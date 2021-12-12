@@ -171,6 +171,7 @@ public class PhoneBook {
                     List<Person> personsImport = Arrays.asList(mapper.readValue(file, Person[].class));
                     personsImport.forEach(System.out::println);
                     persons.addAll(personsImport);
+                    System.out.println();
                     break;
                 case 8:
                     for (Person el : persons) {
