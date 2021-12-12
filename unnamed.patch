@@ -1,0 +1,47 @@
+Index: JavaHomeWork.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- JavaHomeWork.iml	(revision 9ec10a98a86c92fdde1319f48bff20ed4aa40bb3)
++++ JavaHomeWork.iml	(revision 321e3d56c81143a465a56665015e608b5cf25819)
+@@ -7,5 +7,8 @@
+     </content>
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" name="jackson-annotations-2.13.0" level="project" />
++    <orderEntry type="library" name="jackson-core-2.13.0" level="project" />
++    <orderEntry type="library" name="jackson-databind-2.13.0" level="project" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: src/com/pb/tereschenko/hw12/Person.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/pb/tereschenko/hw12/Person.java	(revision 9ec10a98a86c92fdde1319f48bff20ed4aa40bb3)
++++ src/com/pb/tereschenko/hw12/Person.java	(revision 321e3d56c81143a465a56665015e608b5cf25819)
+@@ -72,6 +72,7 @@
+                 ", phone=" + phone +
+                 ", address='" + address + '\'' +
+                 ", dateEdit=" + formatDate.format(dateEdit) +
++
+                 '}' + "\n";
+     }
+ 
+Index: src/com/pb/tereschenko/hw12/PhoneBook.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/pb/tereschenko/hw12/PhoneBook.java	(revision 9ec10a98a86c92fdde1319f48bff20ed4aa40bb3)
++++ src/com/pb/tereschenko/hw12/PhoneBook.java	(revision 321e3d56c81143a465a56665015e608b5cf25819)
+@@ -171,6 +171,7 @@
+                     List<Person> personsImport = Arrays.asList(mapper.readValue(file, Person[].class));
+                     personsImport.forEach(System.out::println);
+                     persons.addAll(personsImport);
++                    System.out.println();
+                     break;
+                 case 8:
+                     for (Person el : persons) {

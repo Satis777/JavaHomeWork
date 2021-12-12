@@ -2,10 +2,7 @@ package com.pb.tereschenko.hw12;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Person implements Comparable<Person> {
     private String name;
@@ -93,4 +90,21 @@ public class Person implements Comparable<Person> {
         return 0;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(name, person.name) &&
+                Objects.equals(dateBirthday, person.dateBirthday) &&
+                Objects.equals(phone, person.phone) &&
+                Objects.equals(address, person.address) &&
+                Objects.equals(dateEdit, person.dateEdit) &&
+                Objects.equals(formatDate, person.formatDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, dateBirthday, phone, address, dateEdit, formatDate);
+    }
 }
