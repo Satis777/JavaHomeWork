@@ -66,12 +66,7 @@ public class PhoneBook {
                 case 2:
                     System.out.println("Введите имя для удаления");
                     name = scan.next();
-                    persons.removeIf(new Predicate<Person>() {
-                        @Override
-                        public boolean test(Person ps) {
-                            return ps.getName().equals(name);
-                        }
-                    });
+                    persons.removeIf(ps1 -> ps1.getName().equals(name));
                     System.out.println("Контакт " + name + " удален!");
                     break;
                 case 3:
@@ -93,7 +88,6 @@ public class PhoneBook {
                             "2 - По дате рождения\n");
                     choice = scan.nextInt();
                     if (choice == 1) {
-                        //Collections.sort(persons);
                         persons.sort(Comparator.comparing(Person::getName));
                         System.out.println(persons);
                     } else if (choice == 2) {
@@ -192,26 +186,3 @@ public class PhoneBook {
 
     }
 }
-
-/*
-// 6 - Save phone book in file *.json
-            else if (numComand == 6){
-                System.out.print("Enter path file for save JSON file: ");
-                String personsJson = mapper.writeValueAsString(persons);
-                File file = Paths.get("./src/com/pb/timoshenko/hw11/persons.json").toFile();
-                FileOutputStream outputStream = new FileOutputStream(file);
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-                objectOutputStream.writeObject(personsJson);
-                objectOutputStream.close();
-                System.out.println("JSON file created.");
-            }
-// 7 - Import phone book
-            else if (numComand == 7){
-                System.out.println("Enter path file: ");
-                //mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-                File file = Paths.get("./src/com/pb/timoshenko/hw11/personsImport.json").toFile();
-                List<Person> personsImport = Arrays.asList(mapper.readValue(file, Person[].class));
-                personsImport.forEach(System.out::println);
-                persons.addAll(personsImport);
-            }
- */
