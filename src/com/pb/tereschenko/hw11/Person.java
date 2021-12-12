@@ -2,34 +2,38 @@ package com.pb.tereschenko.hw11;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class Person {
+public class Person implements Comparable<Person>{
     private String name;
     private Date dateBirthday;
-    private final List<String> phone;
+    private List<String> phone;
     private String address;
     private Date dateEdit;
     SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
 
-    public Person(String name, Date dateBirthday, List<String> phone, String address, Date dateEdit) {
-        this.name = name;
-        this.dateBirthday = dateBirthday;
-        this.phone = phone;
-        this.address = address;
-        this.dateEdit = dateEdit;
+    public Person() {
     }
 
-    public Person(){
-        this.name = "Test";
-        this.dateBirthday = new Date();
-        this.address = "Test";
+    public Person(String name, Date dateBirthday, String phone, String address) {
+        this.name = name;
+        this.dateBirthday = dateBirthday;
+        this.phone = new ArrayList<String>(Collections.singleton(phone));
+        this.address = address;
         this.dateEdit = new Date();
-        this.phone = new ArrayList<>();
     }
+
+
+//    public Person(){
+//        this.name = "www";
+//        this.dateBirthday = new Date(12/05/1995);
+//        this.address = "Test";
+//        this.dateEdit = new Date();
+//        this.phone = new ArrayList<>();
+//        List<String> coolStringList = Arrays.asList("Java", "Scala", "Groovy");
+//        phone.add("096");
+//        phone.add("067");
+//    }
 
     public String getName() {
         return name;
@@ -79,12 +83,11 @@ public class Person {
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
-                ", dateBirthday=" + dateBirthday +
+                ", dateBirthday=" + formatDate.format(dateBirthday) +
                 ", phone=" + phone +
                 ", address='" + address + '\'' +
-                ", dateEdit=" + dateEdit +
-                ", formatDate=" + formatDate +
-                '}';
+                ", dateEdit=" + formatDate.format(dateEdit) +
+                '}' + "\n";
     }
 
         public void createContact(String name,String date,String phone, String address) throws ParseException {
@@ -95,4 +98,9 @@ public class Person {
             this.dateEdit = new Date();
         }
 
-    }
+    @Override
+    public int compareTo(Person person) {
+        return 0;
+        }
+
+}
