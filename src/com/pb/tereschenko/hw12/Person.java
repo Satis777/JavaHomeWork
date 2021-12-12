@@ -72,7 +72,6 @@ public class Person implements Comparable<Person> {
                 ", phone=" + phone +
                 ", address='" + address + '\'' +
                 ", dateEdit=" + formatDate.format(dateEdit) +
-
                 '}' + "\n";
     }
 
