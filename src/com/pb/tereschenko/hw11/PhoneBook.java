@@ -1,19 +1,31 @@
 package com.pb.tereschenko.hw11;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
+import java.io.*;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.function.Predicate;
 
 public class PhoneBook {
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, IOException {
         List<Person> persons = new ArrayList<>();
+
+        ObjectMapper mapper = new ObjectMapper();
+        // pretty printing (json с отступами)
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
         SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
         Scanner scan = new Scanner(System.in);
 // Тестовые контакты
         persons.add(new Person("Gala", formatDate.parse("31/01/1979"), "0969260052", "Dnepr"));
-        persons.add(new Person("Алексей", formatDate.parse("07/03/1977"), "0961240420", "Dnepr"));
-        persons.add(new Person("Семен", formatDate.parse("13/12/2009"), "095", "Dnepr"));
+        persons.add(new Person("Alex", formatDate.parse("07/03/1977"), "0961240420", "Dnepr"));
+        persons.add(new Person("Sema", formatDate.parse("13/12/2009"), "095", "Dnepr"));
         boolean flag = true;
 
         do {
@@ -148,8 +160,22 @@ public class PhoneBook {
                     }
                     break;
                 case 6:
+                    String personJson = mapper.writeValueAsString(persons);
+                    System.out.println(personJson);
+                    File file = Paths.get("./src/com/pb/tereschenko/hw11/person.json").toFile();
+                    FileOutputStream outputStream = new FileOutputStream(file);
+                    ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+                    objectOutputStream.writeObject(personJson);
+                    objectOutputStream.close();
+                    System.out.println("JSON file created.");
                     break;
                 case 7:
+                    System.out.println("Enter path file: ");
+                    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                    file = Paths.get("./src/com/pb/tereschenko/hw11/person.json").toFile();
+                    List<Person> personsImport = Arrays.asList(mapper.readValue(file, Person[].class));
+                    personsImport.forEach(System.out::println);
+                    persons.addAll(personsImport);
                     break;
                 case 8:
                     for (Person el : persons) {
@@ -166,3 +192,26 @@ public class PhoneBook {
 
     }
 }
+
+/*
+// 6 - Save phone book in file *.json
+            else if (numComand == 6){
+                System.out.print("Enter path file for save JSON file: ");
+                String personsJson = mapper.writeValueAsString(persons);
+                File file = Paths.get("./src/com/pb/timoshenko/hw11/persons.json").toFile();
+                FileOutputStream outputStream = new FileOutputStream(file);
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+                objectOutputStream.writeObject(personsJson);
+                objectOutputStream.close();
+                System.out.println("JSON file created.");
+            }
+// 7 - Import phone book
+            else if (numComand == 7){
+                System.out.println("Enter path file: ");
+                //mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+                File file = Paths.get("./src/com/pb/timoshenko/hw11/personsImport.json").toFile();
+                List<Person> personsImport = Arrays.asList(mapper.readValue(file, Person[].class));
+                personsImport.forEach(System.out::println);
+                persons.addAll(personsImport);
+            }
+ */

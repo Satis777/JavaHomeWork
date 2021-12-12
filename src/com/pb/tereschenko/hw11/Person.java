@@ -80,7 +80,7 @@ public class Person implements Comparable<Person> {
     public void createContact(String name, String date, String phone, String address) throws ParseException {
         this.name = name;
         this.dateBirthday = formatDate.parse(date);
-        this.phone.add(phone);
+        this.phone= Collections.singletonList(phone);
         this.address = address;
         this.dateEdit = new Date();
     }

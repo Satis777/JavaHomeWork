@@ -1,0 +1,19 @@
+[ {
+  "name" : "Gala",
+  "dateBirthday" : 286581600000,
+  "phone" : [ "0969260052" ],
+  "address" : "Dnepr",
+  "dateEdit" : 1639323210821
+}, {
+  "name" : "Alex",
+  "dateBirthday" : 226533600000,
+  "phone" : [ "0961240420" ],
+  "address" : "Dnepr",
+  "dateEdit" : 1639323210821
+}, {
+  "name" : "Sema",
+  "dateBirthday" : 1260655200000,
+  "phone" : [ "095" ],
+  "address" : "Dnepr",
+  "dateEdit" : 1639323210821
+} ]
