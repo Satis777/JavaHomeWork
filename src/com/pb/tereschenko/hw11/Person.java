@@ -18,22 +18,12 @@ public class Person implements Comparable<Person>{
     public Person(String name, Date dateBirthday, String phone, String address) {
         this.name = name;
         this.dateBirthday = dateBirthday;
-        this.phone = new ArrayList<String>(Collections.singleton(phone));
+        this.phone = new ArrayList<>(Collections.singleton(phone));
         this.address = address;
         this.dateEdit = new Date();
     }
 
 
-//    public Person(){
-//        this.name = "www";
-//        this.dateBirthday = new Date(12/05/1995);
-//        this.address = "Test";
-//        this.dateEdit = new Date();
-//        this.phone = new ArrayList<>();
-//        List<String> coolStringList = Arrays.asList("Java", "Scala", "Groovy");
-//        phone.add("096");
-//        phone.add("067");
-//    }
 
     public String getName() {
         return name;
@@ -71,13 +61,7 @@ public class Person implements Comparable<Person>{
         this.dateEdit = dateEdit;
     }
 
-    public SimpleDateFormat getFormatDate() {
-        return formatDate;
-    }
 
-    public void setFormatDate(SimpleDateFormat formatDate) {
-        this.formatDate = formatDate;
-    }
 
     @Override
     public String toString() {
