@@ -68,8 +68,6 @@ public class PhoneBook {
                     for (Person el : persons) {
                         if (el.getName().equals(name)) {
                             System.out.println(el.info());
-//                            System.out.println(el.getName() + " ," + el.getAddress() +
-//                                    " ," + el.getDateBirthday());
                             for (String ph : el.getPhone()) {
                                 System.out.println(ph);
                             }
