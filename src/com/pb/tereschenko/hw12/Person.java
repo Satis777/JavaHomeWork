@@ -1,0 +1,96 @@
+package com.pb.tereschenko.hw12;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+
+public class Person implements Comparable<Person> {
+    private String name;
+    private Date dateBirthday;
+    private List<String> phone;
+    private String address;
+    private Date dateEdit;
+    SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+
+    public Person() {
+    }
+
+    public Person(String name, Date dateBirthday, String phone, String address) {
+        this.name = name;
+        this.dateBirthday = dateBirthday;
+        this.phone = new ArrayList<>(Collections.singleton(phone));
+        this.address = address;
+        this.dateEdit = new Date();
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getDateBirthday() {
+        return dateBirthday;
+    }
+
+    public void setDateBirthday(Date dateBirthday) {
+        this.dateBirthday = dateBirthday;
+    }
+
+    public List<String> getPhone() {
+        return phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Date getDateEdit() {
+        return dateEdit;
+    }
+
+    public void setDateEdit(Date dateEdit) {
+        this.dateEdit = dateEdit;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", dateBirthday=" + formatDate.format(dateBirthday) +
+                ", phone=" + phone +
+                ", address='" + address + '\'' +
+                ", dateEdit=" + formatDate.format(dateEdit) +
+                '}' + "\n";
+    }
+
+    public String info() {
+        return name + " " + formatDate.format(dateBirthday) + " " + address;
+
+    }
+
+    public void createContact(String name, String date, String phone, String address) throws ParseException {
+        this.name = name;
+        this.dateBirthday = formatDate.parse(date);
+        this.phone= Collections.singletonList(phone);
+        this.address = address;
+        this.dateEdit = new Date();
+    }
+
+    @Override
+    public int compareTo(Person person) {
+        return 0;
+    }
+
+}
