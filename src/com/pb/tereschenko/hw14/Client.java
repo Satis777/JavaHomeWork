@@ -37,7 +37,7 @@ class Clients {
     }
 
     private void pressLogin() {
-        System.out.print("Enter your login: ");
+        System.out.print("Enter your Name: ");
         try {
             login = inputUser.readLine();
             out.write("Hello " + login + "\n");
