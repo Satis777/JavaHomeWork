@@ -13,7 +13,7 @@ public class Server {
     public static LinkedList<Servers> serverList = new LinkedList<>();
 
     public static void main(String[] args) throws IOException {
-        try (ServerSocket server = new ServerSocket(8000)) {
+        try (ServerSocket server = new ServerSocket(7000)) {
             System.out.println("Server Started");
             while (true) {
                 Socket socket = server.accept();
