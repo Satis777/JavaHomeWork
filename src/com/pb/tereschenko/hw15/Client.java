@@ -7,7 +7,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class ClientSwing extends JFrame {
+public class Client extends JFrame {
 
     private Scanner inMessage;
     private PrintWriter outMessage;
@@ -17,7 +17,7 @@ public class ClientSwing extends JFrame {
     private String clientName = "";
 
 
-    public ClientSwing() {
+    public Client() {
         try {
             Socket socket = new Socket("localhost", 8000);
             inMessage = new Scanner(socket.getInputStream());
@@ -100,6 +100,6 @@ public class ClientSwing extends JFrame {
         jtfMessage.setText("");
     }
     public static void main(String[]args){
-        ClientSwing clientWindow = new ClientSwing();
+        Client clientWindow = new Client();
     }
 }
